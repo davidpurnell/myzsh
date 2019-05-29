@@ -1,5 +1,4 @@
-# myzsh
-My Zsh config
+# My Zsh config
 
 # Initial install:
 
