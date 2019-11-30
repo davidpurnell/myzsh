@@ -80,7 +80,8 @@ if [[ $IS_MAC -eq 1 ]]; then
     #
     # rebuild Launch Services to remove duplicate entries on Open With menu
     alias rebuildopenwith='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.fram ework/Support/lsregister -kill -r -domain local -domain system -domain user'
-	 alias restartspotlight='sudo ps aux | grep Spotlight\.app | grep -v grep | awk '{print $2}' | xargs kill -9'
+    alias restartspotlight='sudo ps aux | grep Spotlight\.app | grep -v grep | awk '{print $2}' | xargs kill -9'
+    alias rebuildkc='sudo rm -r /System/Library/Caches/com.apple.kext.caches && sudo touch /System/Library/Extensions && sudo kextcache -update-volume /'
 fi
 
 # -------------------------------------------------------------------
@@ -88,7 +89,7 @@ fi
 # -------------------------------------------------------------------
 ***REMOVED***
 ***REMOVED***
-alias 'moshmomther=mosh momther.com --ssh="ssh -p 809"'
+***REMOVED***
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
@@ -130,6 +131,12 @@ alias gsh="git shortlog | grep -E '^[ ]+\w+' | wc -l"
 
 # gu shows a list of all developers and the number of commits they've made
 alias gu="git shortlog | grep -E '^[^ ]'"
+
+# -------------------------------------------------------------------
+# Node
+# -------------------------------------------------------------------
+#alias npm=pnpm
+#alias npx=pnpx
 
 # -------------------------------------------------------------------
 # Misc

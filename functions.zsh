@@ -47,6 +47,21 @@ colorize_via_pygmentize() {
     done
 }
 # -------------------------------------------------------------------
+# change date only with exiftool
+# -------------------------------------------------------------------
+change_date() {
+	if [ -n "$1" ] && [ -n "$2" ]
+    then
+		  exiftool -m $3 -overwrite_original -echo "changing dates..." '-DateTimeOriginal<'"$1"' ${DateTimeOriginal;s/.* //}' '-CreateDate<i'"$1"' ${CreateDate;s/.* //}' '-ModifyDate<'"$1"' ${ModifyDate;s/.* //}' $2
+		  exiftool -m $3 -overwrite_original -echo "adding CreateDate as needed..." '-CreateDate='"$1"' 12:00:00' -if '(not $createdate)' $2
+		  exiftool -m $3 -overwrite_original -echo "adding ModifyDate as needed..." '-ModifyDate='"$1"' 12:00:00' -if '(not $modifydate)' $2
+		  exiftool -m $3 -overwrite_original -echo "adding DateTimeOriginal as needed..." '-DateTimeOriginal<CreateDate' -if '(not $datetimeoriginal)' $2
+    else
+        echo "usage: YEAR:MONTH:DAY <filespec>\n"
+        echo "add -r to process subdirectories\n"
+    fi
+}
+# -------------------------------------------------------------------
 # compressed file expander 
 # (from https://github.com/myfreeweb/zshuery/blob/master/zshuery.sh)
 # -------------------------------------------------------------------
@@ -147,6 +162,12 @@ EOF
 	 # mount Clover's EFI partition
 	 function mefi() {
   	 	diskutil list | /usr/bin/grep 512 | awk '{system("sudo diskutil mount /dev/"$5"s1 && open /Volumes/EFI")}'
+	 }
+	 function mefi2() {
+		vuuid=`diskutil info / | grep "Part of Whole:" | awk '{print $4}'`
+		physdev=`diskutil apfs list $vuuid | grep "APFS Physical Store" | awk '{print $6}' | rev | cut -c 3- | rev`
+		sudo diskutil mount /dev/"$physdev"s1 && open /Volumes/EFI
+
 	 }
 fi
 
