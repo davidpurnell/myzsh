@@ -2,7 +2,7 @@
 
 # Initial install:
 
-git clone git@bitbucket.org:davepurnell/my-zsh-config.git ~/.zsh
+git clone git@github.com:davidpurnell/myzsh.git ~/.zsh
 
 # Get the extra goodness:
 
