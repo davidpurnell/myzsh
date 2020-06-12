@@ -1,10 +1,10 @@
 # My Zsh config
 
-# Initial install:
+cobbled together from various parts of the zsh internet. kept here for easy deploy on new machines.
 
-git clone git@github.com:davidpurnell/myzsh.git ~/.zsh
+## Install:
 
-# Get the extra goodness:
+clone into ~/.zsh then install the extras...
 
 cd ~/.zsh
 
