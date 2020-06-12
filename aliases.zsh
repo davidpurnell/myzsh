@@ -84,17 +84,6 @@ if [[ $IS_MAC -eq 1 ]]; then
     alias rebuildkc='sudo rm -r /System/Library/Caches/com.apple.kext.caches && sudo touch /System/Library/Extensions && sudo kextcache -update-volume /'
 fi
 
-# -------------------------------------------------------------------
-***REMOVED***
-# -------------------------------------------------------------------
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-
 alias 'whatsmyip=dig +short myip.opendns.com @resolver1.opendns.com'
 # -------------------------------------------------------------------
 # database

@@ -22,3 +22,7 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zaw/zaw.zsh
 source ~/.zsh/bindkeys.zsh
 source ~/.zsh/zsh_hooks.zsh
+
+# placeholder for local and/or sensitive configs...
+#
+[ -f ~/.zsh/local.zsh ] && source ~/.zsh/local.zsh
