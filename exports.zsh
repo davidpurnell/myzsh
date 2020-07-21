@@ -1,7 +1,8 @@
 if [[ $IS_MAC -eq 1 ]]; then
-	export PATH=$PATH:~/Applications:~/Library/Python/3.7/bin:/usr/local/opt/mysql@5.6/bin
+	MAMP_LATEST_PHP=`ls /Applications/MAMP/bin/php/ | sort -n | tail -1`
+	export PATH=/Applications/MAMP/bin/php/${MAMP_LATEST_PHP}/bin:$PATH:~/Applications:~/Library/Python/3.7/bin:/usr/local/opt/mysql-client/bin
 	export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
-	export EDITOR='subl -w'
+	export EDITOR='code'
 else
 	if [[ $UID -eq 0 ]]; then
 		export PATH=$PATH:/usr/local/bin
