@@ -82,6 +82,9 @@ if [[ $IS_MAC -eq 1 ]]; then
     alias rebuildopenwith='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.fram ework/Support/lsregister -kill -r -domain local -domain system -domain user'
     alias restartspotlight='sudo ps aux | grep Spotlight\.app | grep -v grep | awk '{print $2}' | xargs kill -9'
     alias rebuildkc='sudo rm -r /System/Library/Caches/com.apple.kext.caches && sudo touch /System/Library/Extensions && sudo kextcache -update-volume /'
+	 #
+	 # kill HUP macos dns
+	 alias hupdns='sudo killall -HUP mDNSResponder'
 fi
 
 alias 'whatsmyip=dig +short myip.opendns.com @resolver1.opendns.com'
@@ -156,7 +159,7 @@ alias acat='< ~/.zsh/aliases.zsh'
 alias fcat='< ~/.zsh/functions.zsh'
 alias sz='source ~/.zshrc'
 #
-alias grep='grep --color'
+alias grep='grep --color=auto'
 alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
 
 alias t='tail -f'
