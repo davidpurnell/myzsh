@@ -22,6 +22,8 @@ export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30
 export ZLS_COLORS=$LS_COLORS
 
 # Enable color in grep
+#
+# removed deprecated GREP_OPTIONS variable
 export GREP_COLOR='3;33'
 export GREP_COLORS='3;33'
 
