@@ -159,11 +159,8 @@ EOF
 	 function pushdf() {
   	 	pushd "$(pfd)"
 	 }
-	 # mount Clover's EFI partition
+	 # mount bootdisk's EFI partition
 	 function mefi() {
-  	 	diskutil list | /usr/bin/grep 512 | awk '{system("sudo diskutil mount /dev/"$5"s1 && open /Volumes/EFI")}'
-	 }
-	 function mefi2() {
 		vuuid=`diskutil info / | grep "Part of Whole:" | awk '{print $4}'`
 		physdev=`diskutil apfs list $vuuid | grep "APFS Physical Store" | awk '{print $6}' | rev | cut -c 3- | rev`
 		sudo diskutil mount /dev/"$physdev"s1 && open /Volumes/EFI
