@@ -1,6 +1,8 @@
 if [[ $IS_MAC -eq 1 ]]; then
 	#use MAMP's php if it's installed
-	MAMP_LATEST_PHP="/Applications/MAMP/bin/php/`ls /Applications/MAMP/bin/php/ | sort -n | tail -1`/bin:"
+   if [[ -d "/Applications/MAMP/bin/php" ]]; then
+	   MAMP_LATEST_PHP="/Applications/MAMP/bin/php/`ls /Applications/MAMP/bin/php/ | sort -n | tail -1`/bin:"
+	fi
    export PATH=$MAMP_LATEST_PHP$PATH:~/Applications:~/Library/Python/3.7/bin:/usr/local/opt/mysql-client/bin
 	export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
 	export EDITOR='code'
