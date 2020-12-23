@@ -23,6 +23,10 @@ source ~/.zsh/zaw/zaw.zsh
 source ~/.zsh/bindkeys.zsh
 source ~/.zsh/zsh_hooks.zsh
 
+# fzf completions
+#
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # placeholder for local and/or sensitive configs...
 #
 [ -f ~/.zsh/local.zsh ] && source ~/.zsh/local.zsh

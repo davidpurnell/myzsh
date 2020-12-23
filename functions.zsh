@@ -26,13 +26,15 @@ function rtmux {
 #
 # highlights file content based on the filename extension.
 colorize_via_pygmentize() {
+	 style="solarizeddark"
+
     if [ ! -x "$(which pygmentize)" ]; then
         echo "package \'pygmentize\' is not installed!"
         return -1
     fi
 
     if [ $# -eq 0 ]; then
-        pygmentize -g $@
+        pygmentize -O style=$style -g $@
     fi
 
     for FNAME in $@
@@ -40,9 +42,9 @@ colorize_via_pygmentize() {
         filename=$(basename "$FNAME")
         lexer=`pygmentize -N \"$filename\"`
         if [ "Z$lexer" != "Ztext" ]; then
-            pygmentize -l $lexer "$FNAME"
+            pygmentize -O style=$style -l $lexer "$FNAME"
         else
-            pygmentize -g "$FNAME"
+            pygmentize -O style=$style -g "$FNAME"
         fi
     done
 }
@@ -115,6 +117,14 @@ path() {
            sub(\"/sbin\",  \"$fg_no_bold[magenta]/sbin$reset_color\"); \
            sub(\"/local\", \"$fg_no_bold[yellow]/local$reset_color\"); \
            print }"
+}
+
+# -------------------------------------------------------------------
+# format 'git diff' with fzw
+# -------------------------------------------------------------------
+fgd() {
+  preview="git diff $@ --color=always -- {-1}"
+  git diff $@ --name-only | fzf -m --ansi --preview $preview
 }
 
 # -------------------------------------------------------------------
