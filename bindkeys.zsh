@@ -13,3 +13,7 @@ bindkey "^F"      forward-char                         # ctrl-f
 bindkey "^B"      backward-char                        # ctrl-b
 #bindkey -v   # Default to standard vi bindings, regardless of editor string
 
+# Defined shortcut keys: [Esc] [Esc] for sudo-command-line
+bindkey -M emacs '\e\e' sudo-command-line
+bindkey -M vicmd '\e\e' sudo-command-line
+bindkey -M viins '\e\e' sudo-command-line
