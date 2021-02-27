@@ -87,7 +87,8 @@ if [[ $IS_MAC -eq 1 ]]; then
 	 alias hupdns='sudo killall -HUP mDNSResponder'
 fi
 
-alias 'whatsmyip=dig +short myip.opendns.com @resolver1.opendns.com'
+alias whatsmyip='dig +short myip.opendns.com @resolver1.opendns.com'
+alias wakehack='wakeonlan 1c:1b:0d:0b:28:50'
 # -------------------------------------------------------------------
 # database
 # -------------------------------------------------------------------

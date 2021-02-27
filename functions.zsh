@@ -1,3 +1,17 @@
+# are we remote or local?
+#
+function is_remote() {
+
+	if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+  		REMOTE_SESSION=true
+		# many other tests omitted
+	else
+  		case $(ps -o comm= -p $PPID) in
+    		sshd|*/sshd) REMOTE_SESSION=true;;
+  		esac
+	fi
+	return $REMOTE_SESSION
+}
 # autossh then start/resume tmux session
 #
 function tmux-test() {
