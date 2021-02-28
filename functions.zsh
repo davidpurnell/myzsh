@@ -1,13 +1,13 @@
 # are we remote or local?
 #
 function is_remote() {
-
+	REMOTE_SESSION=1
 	if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-  		REMOTE_SESSION=true
+  		REMOTE_SESSION=0
 		# many other tests omitted
 	else
   		case $(ps -o comm= -p $PPID) in
-    		sshd|*/sshd) REMOTE_SESSION=true;;
+    		sshd|*/sshd) REMOTE_SESSION=0;;
   		esac
 	fi
 	return $REMOTE_SESSION
