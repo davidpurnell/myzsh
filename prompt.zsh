@@ -67,8 +67,10 @@ local timedate='%{$fg[red]%} %D{%b %e %k:%M:%S} %{$reset_color%}'
 
 if [[ $UID -eq 0 ]]; then
     local user_host='%{$terminfo[bold]$fg[red]%}%n@%m%{$reset_color%}'
+    local user_prompt_char='%{$terminfo[bold]$fg[red]%}#%{$reset_color%}'
 else
     local user_host='%{$terminfo[bold]$fg[green]%}%n@%m%{$reset_color%}'
+    local user_prompt_char='%{$terminfo[bold]$fg[green]%}$%{$reset_color%}'
 fi
 
 #local current_dir='%{$terminfo[bold]$fg[blue]%} %10<..<%/ %{$reset_color%}'
@@ -82,7 +84,7 @@ function myPromptWidth() {
 local width_part='$(myPromptWidth)'
 
 PROMPT="╭─${timedate} ${user_host} %{$terminfo[bold]$fg[blue]%}%${width_part}<...<%~%<<%{$reset_color%} ${git_branch}
-╰─%B$%b "
+╰─${user_prompt_char} "
 RPS1="${return_code}"
 
 export SPROMPT="Correct $fg[red]%R$reset_color to $fg[green]%r$reset_color [(y)es (n)o (a)bort (e)dit]? "
