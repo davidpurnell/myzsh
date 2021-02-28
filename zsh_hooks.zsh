@@ -4,7 +4,7 @@ function precmd {
     echo -ne "\e]0;${USER}@${HOST} $PWD:h:t/$PWD:t\a"
 	else
     #we're local
-    echo -ne "\e]1;$PWD:h:t/$PWD:t\a"
+    echo -ne "\e]0;$PWD:h:t/$PWD:t\a"
 	fi
   # vcs_info
   # Put the string "hostname::/full/directory/path" in the title bar:
