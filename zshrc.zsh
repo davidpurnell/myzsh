@@ -12,13 +12,14 @@ fi
 source ~/.zsh/colors.zsh
 source ~/.zsh/setopt.zsh
 source ~/.zsh/exports.zsh
-source ~/.zsh/prompt.zsh
 source ~/.zsh/completion.zsh
 source ~/.zsh/aliases.zsh
 source ~/.zsh/functions.zsh
+source ~/.zsh/prompt.zsh
 source ~/.zsh/history.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-you-should-use/you-should-use.plugin.zsh
 source ~/.zsh/zaw/zaw.zsh
 source ~/.zsh/bindkeys.zsh
 source ~/.zsh/zsh_hooks.zsh

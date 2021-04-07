@@ -16,3 +16,11 @@ export TERM=xterm-256color
 export LESS='--ignore-case --raw-control-chars'
 export PAGER='less'
 
+# You Should Use config
+# message position
+export YSU_MESSAGE_POSITION="after"
+# display all aliases
+export YSU_MODE=ALL
+# force use of aliases
+export YSU_HARDCORE=0
+

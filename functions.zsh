@@ -12,6 +12,7 @@ function is_remote() {
 	fi
 	return $REMOTE_SESSION
 }
+
 # autossh then start/resume tmux session
 #
 function tmux-test() {
