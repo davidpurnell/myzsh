@@ -85,6 +85,7 @@ if [[ $IS_MAC -eq 1 ]]; then
 	 #
 	 # kill HUP macos dns
 	 alias hupdns='sudo killall -HUP mDNSResponder'
+	 alias ocver='nvram 4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102:opencore-version'
 fi
 
 alias whatsmyip='dig +short myip.opendns.com @resolver1.opendns.com'
@@ -94,8 +95,8 @@ alias wakehack='wakeonlan 1c:1b:0d:0b:28:50'
 # -------------------------------------------------------------------
 #alias 'psqlstart=/usr/local/pgsql/bin/pg_ctl -D /usr/local/pgsql/data -l logfile start'
 #alias 'psqlstop=/usr/local/pgsql/bin/pg_ctl stop'
-alias mysql='mysql -u root'
-alias mysqladmin='mysqladmin -u root'
+#alias mysql='mysql -u root'
+#alias mysqladmin='mysqladmin -u root'
 
 # -------------------------------------------------------------------
 # Git
