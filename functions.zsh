@@ -12,6 +12,10 @@ function is_remote() {
 	fi
 	return $REMOTE_SESSION
 }
+function ssl_expiry () {
+  THEDOMAIN=$(curl https://${1} -vI --stderr - | grep "expire date" | cut -d":" -f 2-)
+  echo "${1}:$THEDOMAIN"
+}
 
 # autossh then start/resume tmux session
 #

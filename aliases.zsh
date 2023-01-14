@@ -50,7 +50,7 @@ else
    alias la='ls -Fhal --color=auto' #same as above, show all files, long listing format
    alias lad='ls -Fhalt --color=auto' #same as above, sort by date
 fi
-alias tree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'"
+alias tree2="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'"
 alias 'dus=du -sckx * | sort -nr' #directories sorted by size
 
 alias 'wordy=wc -w * | sort | tail -n10' # sort files in current directory by the number of words they contain
@@ -88,7 +88,7 @@ if [[ $IS_MAC -eq 1 ]]; then
 	 alias ocver='nvram 4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102:opencore-version'
 fi
 
-alias whatsmyip='dig +short myip.opendns.com @resolver1.opendns.com'
+alias whatsmyip='dig +short myip.opendns.com @resolver1.opendns.com -4'
 alias wakehack='wakeonlan 1c:1b:0d:0b:28:50'
 # -------------------------------------------------------------------
 # database
@@ -151,6 +151,7 @@ alias rd=rmdir
 
 # cat file with colorized output
 alias ccat=colorize_via_pygmentize
+alias more=bat
 
 # Force tmux to use 256 colors
 # alias tmux='TERM=screen-256color-bce tmux'
@@ -168,7 +169,7 @@ alias t='tail -f'
 
 # Command line head / tail shortcuts
 alias dud='du -d 1 -h'
-alias duf='du -sh *'
+alias dush='du -sh *'
 alias fd='find . -type d -name'
 alias ff='find . -type f -name'
 
